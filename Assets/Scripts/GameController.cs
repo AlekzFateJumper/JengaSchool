@@ -45,13 +45,13 @@ namespace JengaSchool
 
             if (stacks.Count > stackPoints.Count)
             {
-              Debug.Error("The API data has more stacks than the limit");
+              Debug.LogError("The API data has more stacks than the limit");
               return;
             }
 
             foreach (var stack in stacks)
             {
-                stacks[stack.Key].Sort(delegate(var a, var b)
+                stacks[stack.Key].Sort(delegate(BlockData a, BlockData b)
                 {
                     if (a.domain == b.domain)
                     {
