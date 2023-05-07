@@ -45,6 +45,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f977b279a347ed9199281389802027d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Data:
+    id: 0
+    subject: 
+    grade: 
+    mastery: 0
+    domainid: 
+    domain: 
+    cluster: 
+    standardid: 
+    standarddescription: 
+  materials:
+  - {fileID: 2100000, guid: b623f31d0ce4f4ebab82fb76728143b3, type: 2}
+  - {fileID: 2100000, guid: fe5cd8389dc229c4fbb8a8d1bfad95a0, type: 2}
+  - {fileID: 2100000, guid: eaea88f1684bda947ac4903bbf899105, type: 2}
 --- !u!1 &6504791420783924291
 GameObject:
   m_ObjectHideFlags: 0

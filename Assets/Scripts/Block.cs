@@ -8,6 +8,7 @@ namespace JengaSchool
     public class Block : MonoBehaviour
     {
         public BlockData Data;
+        public List<Material> materials;
 
         // Start is called before the first frame update
         void Start()
