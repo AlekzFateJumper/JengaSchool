@@ -37,20 +37,27 @@ namespace JengaSchool
         {
             foreach (var item in data)
             {
-                if(!stacks.ContainsKey(item.grade)){
+                if (!stacks.ContainsKey(item.grade)){
                     stacks.Add(item.grade, new List<BlockData>());
                 }
                 stacks[item.grade].Add(item);
             }
-            for (var stack in stacks)
+
+            if (stacks.Count > stackPoints.Count)
+            {
+              Debug.Error("The API data has more stacks than the limit");
+              return;
+            }
+
+            foreach (var stack in stacks)
             {
                 stacks[stack.Key].Sort(delegate(var a, var b)
                 {
-                    if(a.domain == b.domain)
+                    if (a.domain == b.domain)
                     {
-                        if(a.cluster == b.cluster)
+                        if (a.cluster == b.cluster)
                         {
-                            return Math.Sign(a.standardid - b.standardid);
+                            return a.standardid.CompareTo(b.standardid);
                         }
                         else
                         {
@@ -62,6 +69,20 @@ namespace JengaSchool
                         return a.domain.CompareTo(b.domain);
                     }
                 });
+            }
+
+            CreateBlocks();
+        }
+
+        void CreateBlocks()
+        {
+            int i = 0;
+            foreach (var stack in stacks)
+            {
+              foreach (var item in stack.Value) {
+
+              }
+              i++;
             }
         }
 
