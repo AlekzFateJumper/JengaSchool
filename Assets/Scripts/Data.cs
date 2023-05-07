@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace JengaSchool.Data
 {
@@ -14,6 +15,11 @@ namespace JengaSchool.Data
         public string cluster;
         public string standardid;
         public string standarddescription;
+    }
 
+    [Serializable]
+    public class ListData
+    {
+      public List<BlockData> list;
     }
 }

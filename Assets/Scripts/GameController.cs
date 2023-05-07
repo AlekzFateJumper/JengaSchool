@@ -22,7 +22,7 @@ namespace JengaSchool
         // Update is called once per frame
         void Update()
         {
-            
+
         }
 
         void MakeStacks(List<BlockData> data)
@@ -41,9 +41,10 @@ namespace JengaSchool
                 while (!req.isDone)
                     yield return null;
                 byte[] result = req.downloadHandler.data;
-                string JSON = System.Text.Encoding.Default.GetString(result);
-                List<BlockData> data = JsonUtility.FromJson<List<BlockData>>(JSON);
-                onSuccess(data);
+                string JSON_data = System.Text.Encoding.Default.GetString(result);
+                JSON_data = "{\"list\":" + JSON_data + "}";
+                ListData data = JsonUtility.FromJson<ListData>(JSON_data);
+                onSuccess(data.list);
             }
         }
     }
