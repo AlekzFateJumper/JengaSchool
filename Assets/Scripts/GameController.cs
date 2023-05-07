@@ -13,9 +13,17 @@ namespace JengaSchool
         public List<GameObject> stackPoints;
         public GameObject blockPrefab;
 
+        private List<int> stackFill;
+        private Dictionary<String, List<BlockData>> stacks;
+
         // Start is called before the first frame update
         void Start()
         {
+            stackFill = new List<int>();
+            stacks = new Dictionary<String, List<BlockData>>();
+            for(int i = 0; i < stackPoints.Count; i++){
+              stackFill.Add(0);
+            }
             StartCoroutine(GetData(MakeStacks));
         }
 
@@ -29,7 +37,31 @@ namespace JengaSchool
         {
             foreach (var item in data)
             {
-                Debug.Log(item);
+                if(!stacks.ContainsKey(item.grade)){
+                    stacks.Add(item.grade, new List<BlockData>());
+                }
+                stacks[item.grade].Add(item);
+            }
+            for (var stack in stacks)
+            {
+                stacks[stack.Key].Sort(delegate(var a, var b)
+                {
+                    if(a.domain == b.domain)
+                    {
+                        if(a.cluster == b.cluster)
+                        {
+                            return Math.Sign(a.standardid - b.standardid);
+                        }
+                        else
+                        {
+                            return a.cluster.CompareTo(b.cluster);
+                        }
+                    }
+                    else
+                    {
+                        return a.domain.CompareTo(b.domain);
+                    }
+                });
             }
         }
 
