@@ -11,12 +11,10 @@ namespace JengaSchool
     public class GameController : MonoBehaviour
     {
         public List<GameObject> stackPoints;
-        public GameObject blockPrefab;
 
         private List<int> stackFill;
         private Dictionary<String, List<BlockData>> stacks;
 
-        // Start is called before the first frame update
         void Start()
         {
             stackFill = new List<int>();
@@ -25,12 +23,6 @@ namespace JengaSchool
               stackFill.Add(0);
             }
             StartCoroutine(GetData(MakeStacks));
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
         }
 
         void MakeStacks(List<BlockData> data)
@@ -49,6 +41,7 @@ namespace JengaSchool
               return;
             }
 
+            int i = 0;
             foreach (var stack in stacks)
             {
                 stacks[stack.Key].Sort(delegate(BlockData a, BlockData b)
@@ -69,20 +62,12 @@ namespace JengaSchool
                         return a.domain.CompareTo(b.domain);
                     }
                 });
-            }
 
-            CreateBlocks();
-        }
+                if(stackPoints[i].TryGetComponent<StackController>(out StackController stackObj)){
+                    stackObj.setData(stack.Key, stacks[stack.Key]);
+                }
 
-        void CreateBlocks()
-        {
-            int i = 0;
-            foreach (var stack in stacks)
-            {
-              foreach (var item in stack.Value) {
-
-              }
-              i++;
+                i++;
             }
         }
 
