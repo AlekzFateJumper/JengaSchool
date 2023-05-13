@@ -8,8 +8,9 @@ namespace JengaSchool
     public class Block : MonoBehaviour
     {
         public List<Material> materials;
+        public GameObject cube;
 
-        private BlockData Data;
+        private BlockData bData;
 
         // Start is called before the first frame update
         void Start()
@@ -19,8 +20,16 @@ namespace JengaSchool
 
         public void Set(BlockData d)
         {
-            Data = d;
+            bData = d;
+
+            if(cube.TryGetComponent<MeshRenderer>(out MeshRenderer mesh))
+            {
+                Material[] mat = mesh.materials;
+                mat[0] = materials[bData.mastery];
+                mesh.materials = mat;
+            }
         }
+        
         // {Grade level}: {Domain}
         // {Cluster}
         // {Standard ID}: {Standard Description}

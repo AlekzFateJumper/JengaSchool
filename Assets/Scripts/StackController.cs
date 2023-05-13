@@ -46,6 +46,7 @@ namespace JengaSchool
                 Vector3 pos = new Vector3(x, y, z);
                 GameObject block = InstantiateBlock(pos, turn, bData);
                 blocks.Add(block);
+                Debug.Log(bData);
                 i++;
             }
         }
