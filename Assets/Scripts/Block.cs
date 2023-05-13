@@ -7,8 +7,9 @@ namespace JengaSchool
 {
     public class Block : MonoBehaviour
     {
-        public BlockData Data;
         public List<Material> materials;
+
+        private BlockData Data;
 
         // Start is called before the first frame update
         void Start()
@@ -16,10 +17,14 @@ namespace JengaSchool
             
         }
 
-        // Update is called once per frame
-        void Update()
+        public void Set(BlockData d)
         {
-            
+            Data = d;
         }
+        // {Grade level}: {Domain}
+        // {Cluster}
+        // {Standard ID}: {Standard Description}
+
+
     }
 }
