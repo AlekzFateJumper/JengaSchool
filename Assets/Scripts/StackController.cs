@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking;
+using TMPro;
 using JengaSchool.Data;
 
 namespace JengaSchool
@@ -11,7 +12,7 @@ namespace JengaSchool
     public class StackController : MonoBehaviour
     {
         public GameObject blockPrefab;
-        public
+        public TMP_Text gradeObj;
 
         private String grade;
         private List<BlockData> data;
@@ -25,8 +26,9 @@ namespace JengaSchool
         {
             grade = g;
             data = d;
+            gradeObj.text = grade;
 
-
+            
         }
     }
 }
