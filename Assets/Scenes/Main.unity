@@ -148,7 +148,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2616044073445806203, guid: 8332ded1d849b6d969b5e10e1ecf58be, type: 3}
       propertyPath: m_Name
-      value: Stack Start Point
+      value: Stack Start Point 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8332ded1d849b6d969b5e10e1ecf58be, type: 3}
@@ -191,7 +191,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2616044073445806203, guid: 8332ded1d849b6d969b5e10e1ecf58be, type: 3}
       propertyPath: m_Name
-      value: Stack Start Point
+      value: Stack Start Point 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8332ded1d849b6d969b5e10e1ecf58be, type: 3}
@@ -288,7 +288,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 658202828}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 963194229}
+        m_TargetAssemblyTypeName: CameraOrbit, Assembly-CSharp
+        m_MethodName: SetTarget
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &658202828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -737,7 +749,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.2588191, y: 0, z: 0, w: 0.9659258}
-  m_LocalPosition: {x: 0, y: 8, z: -10}
+  m_LocalPosition: {x: 0, y: 5, z: -11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -756,7 +768,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed11a08f981175a42b954ff2edab6496, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Alvo: {fileID: 25198510}
+  Alvos:
+  - {fileID: 563793403}
+  - {fileID: 25198510}
+  - {fileID: 1290149923}
   Tempo: 180
 --- !u!1 &987230194
 GameObject:
@@ -922,7 +937,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2616044073445806203, guid: 8332ded1d849b6d969b5e10e1ecf58be, type: 3}
       propertyPath: m_Name
-      value: Stack Start Point
+      value: Stack Start Point 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8332ded1d849b6d969b5e10e1ecf58be, type: 3}
@@ -1169,7 +1184,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1670893942}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 963194229}
+        m_TargetAssemblyTypeName: CameraOrbit, Assembly-CSharp
+        m_MethodName: SetTarget
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: -1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1670893942
 MonoBehaviour:
   m_ObjectHideFlags: 0
