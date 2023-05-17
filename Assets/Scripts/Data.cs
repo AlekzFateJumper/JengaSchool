@@ -20,6 +20,6 @@ namespace JengaSchool.Data
     [Serializable]
     public class ListData
     {
-      public List<BlockData> list;
+        public List<BlockData> list;
     }
 }

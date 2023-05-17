@@ -21,7 +21,7 @@ namespace JengaSchool
             stackFill = new List<int>();
             stacks = new Dictionary<String, List<BlockData>>();
             for(int i = 0; i < stackPoints.Count; i++){
-              stackFill.Add(0);
+                stackFill.Add(0);
             }
             StartCoroutine(GetData(MakeStacks));
         }
@@ -40,8 +40,8 @@ namespace JengaSchool
 
             if (stacks.Count > stackPoints.Count)
             {
-              Debug.LogError("The API data has more stacks than the limit");
-              return;
+                Debug.LogError("The API data has more stacks than the limit");
+                return;
             }
 
             int i = 0;
