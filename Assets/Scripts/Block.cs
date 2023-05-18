@@ -10,7 +10,7 @@ namespace JengaSchool
         public List<Material> materials;
 
         [SerializeField]
-        private BlockData bData;
+        public BlockData bData;
 
         public void Set(BlockData d)
         {
@@ -22,16 +22,20 @@ namespace JengaSchool
                 mat[0] = materials[bData.mastery];
                 mesh.materials = mat;
             }
+            if(TryGetComponent<Rigidbody>(out Rigidbody body))
+            {
+                body.mass = (bData.mastery + 1) * 5;
+            }
         }
 
         void OnMouseEnter(){
-            if(transform.rotation.y > 0) transform.localPosition += new Vector3(0,0,-.3f);
-            else transform.localPosition += new Vector3(-.3f,0,0);
+            if(transform.localEulerAngles.y < 45 || transform.localEulerAngles.y > 300) transform.localPosition += new Vector3(-.25f,0,0);
+            else transform.localPosition += new Vector3(0,0,-.25f);
         }
 
         void OnMouseExit(){
-            if(transform.rotation.y > 0) transform.localPosition += new Vector3(0,0,.3f);
-            else transform.localPosition += new Vector3(.3f,0,0);
+            if(transform.localEulerAngles.y < 45 || transform.localEulerAngles.y > 300) transform.localPosition += new Vector3(.25f,0,0);
+            else transform.localPosition += new Vector3(0,0,.25f);
         }
 
         void OnMouseOver()

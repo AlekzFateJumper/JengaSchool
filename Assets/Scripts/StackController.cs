@@ -14,6 +14,8 @@ namespace JengaSchool
         public GameObject blockPrefab;
         public TMP_Text gradeObj;
 
+        public bool testing = false;
+
         private String grade;
         private List<BlockData> data;
         private List<GameObject> blocks;
@@ -30,6 +32,28 @@ namespace JengaSchool
             data = d;
             gradeObj.text = grade;
 
+            MakeBlocks();
+        }
+
+        public void TestMyStack(){
+            testing = true;
+            foreach(var block in blocks){
+                if(block.TryGetComponent<Block>(out Block blockCtrl)){
+                    if(blockCtrl.bData.mastery == 0){
+                        Destroy(block);
+                    }
+                }
+            }
+        }
+
+        public void ResetStack(){
+            testing = false;
+            foreach(var block in blocks){
+                if(block && block.TryGetComponent<Block>(out Block blockCtrl)){
+                    Destroy(block);
+                }
+            }
+            blocks = new List<GameObject>();
             MakeBlocks();
         }
 

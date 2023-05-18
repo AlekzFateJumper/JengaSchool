@@ -10,6 +10,9 @@ namespace JengaSchool
         public List<GameObject> Alvos;
         public int Tempo;
 
+        public GameObject BtnTestStack;
+        public GameObject BtnResetStack;
+
         private GameObject Alvo;
         private int index = 1;
         private float VelocidadeHorizontal = 100f;
@@ -34,10 +37,30 @@ namespace JengaSchool
             }
         }
 
+        public void TestMyStack(){
+            if(Alvo.TryGetComponent<StackController>(out StackController stackCtrl)){
+                stackCtrl.SendMessage("TestMyStack");
+                BtnTestStack.SetActive(false);
+                BtnResetStack.SetActive(true);
+            }
+        }
+
+        public void ResetStack(){
+            if(Alvo.TryGetComponent<StackController>(out StackController stackCtrl)){
+                stackCtrl.SendMessage("ResetStack");
+                BtnTestStack.SetActive(true);
+                BtnResetStack.SetActive(false);
+            }
+        }
+
         public void SetTarget(int step){
             index = ( index + step ) % Alvos.Count;
             Alvo = Alvos[index];
             transform.position = new Vector3(Alvo.transform.position.x, 5, -11);
+            if(Alvo.TryGetComponent<StackController>(out StackController stackCtrl)){
+                BtnTestStack.SetActive(!stackCtrl.testing);
+                BtnResetStack.SetActive(stackCtrl.testing);
+            }
         }
     }
 }
