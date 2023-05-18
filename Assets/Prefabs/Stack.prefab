@@ -217,5 +217,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18fc4da80ad83eb6d9182e8a73a44e59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blockPrefab: {fileID: 730772045511924633, guid: 786d11c6d7ce476d397308ad897c2556, type: 3}
+  blockPrefab: {fileID: 2370414730712975210, guid: a8c459fa5afdd79e9a0b06fff13017ef, type: 3}
   gradeObj: {fileID: 2638922325630939063}

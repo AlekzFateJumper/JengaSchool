@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking;
+using TMPro;
 using JengaSchool.Data;
 
 namespace JengaSchool
@@ -12,6 +13,9 @@ namespace JengaSchool
     {
         public List<GameObject> stackPoints;
         public List<String> stackNames;
+
+        public GameObject detailPanel;
+        public TMP_Text detailText;
 
         private List<int> stackFill;
         private Dictionary<String, List<BlockData>> stacks;
@@ -75,6 +79,11 @@ namespace JengaSchool
             }
         }
 
+        public void OpenDetails(BlockData d){
+            detailText.text = $"{d.grade}: {d.domain}\r\n{d.cluster}\r\n{d.standardid}: {d.standarddescription}";
+            detailPanel.SetActive(true);
+        }
+
         IEnumerator GetData(Action<List<BlockData>> onSuccess)
         {
             using (UnityWebRequest req = UnityWebRequest.Get("https://ga1vqcu3o1.execute-api.us-east-1.amazonaws.com/Assessment/stack"))
@@ -88,6 +97,5 @@ namespace JengaSchool
                 ListData data = JsonUtility.FromJson<ListData>(JSON_data);
                 onSuccess(data.list);
             }
-        }
-    }
+        }    }
 }

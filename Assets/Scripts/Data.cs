@@ -15,6 +15,8 @@ namespace JengaSchool.Data
         public string cluster;
         public string standardid;
         public string standarddescription;
+
+        public BlockData() {}
     }
 
     [Serializable]
